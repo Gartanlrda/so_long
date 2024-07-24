@@ -6,7 +6,7 @@
 /*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:54:53 by ggoy              #+#    #+#             */
-/*   Updated: 2024/07/24 15:59:15 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/07/24 16:38:22 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	main(void)
 		my_mlx_pixel_put(&img, i, y, 0x80FF00FF);
 	}
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	mlx_loop(mlxxxx
+	);
 }
