@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+         #
+#    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/07/24 15:10:06 by ggoy             ###   ########.fr        #
+#    Updated: 2024/07/25 14:39:02 by gartan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@ minilibx_linux:
 	wget https://cdn.intra.42.fr/document/document/26928/minilibx-linux.tgz
 
 clean:
-	rm -f $(OBJ_FILES) $(OBJ_FILES_BONUS)
+	rm -f $(OBJ_FILES)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS)
+	rm -f $(NAME)
 
 re: fclean all
 
