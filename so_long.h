@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/07/24 12:59:16 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/07/25 17:11:41 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include <stdlib.h>
 # include "minilibx-linux/mlx.h"
+# include <stdio.h>
 
 #endif
