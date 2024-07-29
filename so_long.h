@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/07/28 18:17:06 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/07/29 14:59:16 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ typedef struct	s_data {
 }				t_data;
 
 int		close(t_vars *vars);
-void	incrust(int x, int y, t_data img);
+void	incrust(t_vars vars, int x, int y);
 
 #endif
