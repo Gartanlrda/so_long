@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/08/07 17:05:53 by gartan           ###   ########.fr       */
+/*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
+/*   Updated: 2024/08/07 12:28:23 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "utils.h"
 
-# include <stdlib.h>
-# include "minilibx-linux/mlx.h"
-# include <stdio.h>
-# include "libft/libft.h"
-# include "utils.h"
-# include "animation.h"
-# include "libft/get_next_line.h"
-# include <unistd.h>
-# include <fcntl.h>
-
-# define TILE 150
-
-#endif
+int	key_hook(int keycode, t_win *win)
+{
+	if (keycode == 65307)
+		close_win(win);
+	else if (keycode == 115)
+		ft_fullscreen(*win);
+	else
+		printf("keybind: %i\n", keycode);
+	return (0);
+}

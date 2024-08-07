@@ -6,7 +6,7 @@
 #    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/08/06 16:56:02 by gartan           ###   ########.fr        #
+#    Updated: 2024/08/07 17:19:26 by gartan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@
 ################################################################################
 
 NAME		= so_long
-BONUS		= checker
-CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address -g3
 MLX_PATH	= ./minilibx-linux
 MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lbsd -lXext -lX11 -lm
 LIBFT_FLAGS	= -L./libft -lft
@@ -31,7 +30,8 @@ SRC_FILES	= main.c\
 				figures_utils.c\
 				animator.c\
 				utils.c\
-				animations.c
+				animations.c\
+				hooks.c
 
 OBJ_FILES	= $(SRC_FILES:.c=.o)
 
