@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/07 12:25:47 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/09 17:14:17 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_win
 	int		h;
 	int		w;
 	int		color;
+	char	**map;
 }				t_win;
 
 int		close_win(t_win *win);
