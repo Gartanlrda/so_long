@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/08/07 17:05:53 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/12 15:51:17 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include "libft/libft.h"
 # include "utils.h"
-# include "animation.h"
 # include "libft/get_next_line.h"
 # include <unistd.h>
 # include <fcntl.h>
