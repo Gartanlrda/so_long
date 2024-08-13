@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:16:17 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/12 18:24:01 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 11:54:13 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,29 @@ void	get_character(char **map, t_coord *c)
 void	fill_possible(char **map, t_coord c, t_win *mlx)
 {
 	map[c.y][c.x] = 'X';
-	if (c.y > 0 && (map[c.y - 1][c.x] == '0' || map[c.y - 1][c.x] == 'C'\
-		|| map[c.y - 1][c.x] == 'E' || map[c.y - 1][c.x] == 'X'))
+	if ((map[c.y - 1][c.x] != 'X' && map[c.y - 1][c.x] != '1'))
 	{
 		c.y = c.y - 1;
 		fill_possible(map, c, mlx);
+		c.y = c.y + 1;
 	}
-	if ((c.y < mlx->y - 1) && (map[c.y + 1][c.x] == '0'\
-		|| map[c.y + 1][c.x] == 'C' || map[c.y + 1][c.x] == 'E'|| map[c.y + 1][c.x] == 'X'))
+	if (map[c.y + 1][c.x] != '1' && map[c.y + 1][c.x] != 'X')
 	{
 		c.y = c.y + 1;
 		fill_possible(map, c, mlx);
+		c.y = c.y - 1;
 	}
-	if ((c.x < mlx->x - 1) && (map[c.y][c.x + 1] == '0'\
-		|| map[c.y][c.x + 1] == 'C' || map[c.y][c.x + 1] == 'E' || map[c.y][c.x + 1] == 'X'))
+	if ((map[c.y][c.x + 1] != '1' && (map[c.y][c.x + 1] != 'X')))
 	{
 		c.x = c.x + 1;
 		fill_possible(map, c, mlx);
+		c.x = c.x - 1;
 	}
-	if (c.x > 0 && (map[c.y][c.x - 1] == '0' || map[c.y][c.x - 1] == 'C'\
-		|| map[c.y][c.x - 1] == 'E' || map[c.y][c.x - 1] == 'X'))
+	if ((map[c.y][c.x - 1] != '1' && (map[c.y][c.x - 1] != 'X')))
 	{
 		c.x = c.x - 1;
 		fill_possible(map, c, mlx);
+		c.x = c.x + 1;
 	}
 }
 int	map_checker(char **map, t_win mlx)
@@ -83,7 +83,7 @@ int	map_checker(char **map, t_win mlx)
 	{
 		while (map[y][x])
 		{
-			printf("x = %i, y = %i\n", x, y);
+			// printf("x = %i, y = %i\n", x, y);
 			if (map[y][x] == 'E' || map[y][x] == 'C')
 				return (0);
 			else
@@ -108,15 +108,16 @@ void	flood_fill(t_win *mlx)
 	fill_possible(map, c, mlx);
 	if (map_checker(map, *mlx) == 0)
 	{
-		printf("map KO\n");
-		//exit (EXIT_FAILURE);
+		ft_printf("map KO\n");
+		exit (EXIT_FAILURE);
 	}
 	else
-		printf("map OK\n");
+		ft_printf("map OK\n");
 	i = 0;
 	while (i < 5)
 	{
 		printf("%s\n", map[i]);
 		i++;
 	}
+	free_tab(map, mlx->y);
 }

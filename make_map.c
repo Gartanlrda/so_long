@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:32:48 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/12 16:16:00 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 11:54:58 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void	make_map(t_win *mlx, void *img1, void *img2)
 
 	x = 0;
 	y = 0;
-	printf("width %d\n", mlx->x);
-	printf("height %d\n", mlx->y);
+	// printf("width %d\n", mlx->x);
+	// printf("height %d\n", mlx->y);
 	while (x < mlx->x)
 	{
 		while (y < mlx->y)
@@ -104,5 +104,4 @@ void	make_map(t_win *mlx, void *img1, void *img2)
 		y = 0;
 		x += 1;
 	}
-	printf("endmap\n");
 }

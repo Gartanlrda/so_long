@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:37:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/12 15:44:39 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 11:55:27 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		flood_fill(&mlx);
 		mlx.mlx = mlx_init();
 		mlx.win = mlx_new_window(mlx.mlx, (mlx.x * TILE), (mlx.y * TILE), "Bon deja");
-		printf("%i, %i\n", mlx.y * TILE, mlx.x * TILE);
+		// printf("%i, %i\n", mlx.y * TILE, mlx.x * TILE);
 		img1 = mlx_xpm_file_to_image(mlx.mlx, relative_path1, &img_width, &img_height);
 		img2 = mlx_xpm_file_to_image(mlx.mlx, relative_path2, &img_width, &img_height);
 		make_map(&mlx, img1, img2);

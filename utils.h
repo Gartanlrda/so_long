@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/12 18:08:34 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 11:53:29 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include "libft/libft.h"
 # include "so_long.h"
+# include "libft/ft_printf.h"
 
 typedef struct	s_img
 {
@@ -59,5 +60,6 @@ void	flood_fill(t_win *mlx);
 void	fill_possible(char **map, t_coord c, t_win *mlx);
 void	get_character(char **map, t_coord *c);
 char	**copy_tab(char **map);
+void	free_tab(char **tab, int size);
 
 #endif

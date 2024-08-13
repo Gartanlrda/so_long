@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/08/13 11:40:11 by gartan           ###   ########.fr       */
+/*   Created: 2024/08/13 11:45:05 by gartan            #+#    #+#             */
+/*   Updated: 2024/08/13 11:52:46 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "utils.h"
 
-# include <stdlib.h>
-# include "minilibx-linux/mlx.h"
-# include <stdio.h>
-# include "libft/libft.h"
-# include "utils.h"
-# include "libft/get_next_line.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include "libft/ft_printf.h"
+void	free_tab(char **tab, int size)
+{
+	int	i;
 
-# define TILE 150
-
-#endif
+	i = 0;
+	while (i < size)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
