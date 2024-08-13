@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 16:49:28 by gartan           ###   ########.fr       */
+/*   Created: 2024/08/13 16:55:02 by gartan            #+#    #+#             */
+/*   Updated: 2024/08/13 16:55:59 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	key_hook(int keycode, t_win *win)
+char	*ft_strdup_SL(const char *s)
 {
-	if (keycode == 65307)
-		close_win(win);
-	else
-		ft_printf("keybind: %i\n", keycode);
-	return (0);
+	int		i;
+	char	*result;
+
+	i = 0;
+	while (s[i])
+		i++;
+	result = (char *) malloc((i + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		result[i] = s[i];
+		i++;
+	}
+	result[i] = '\0';
+	if (result[i - 1] == '\n')
+		result[i - 1] = '\0';
+	return (result);
 }

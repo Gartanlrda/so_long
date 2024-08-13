@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:16:17 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 11:54:13 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 15:47:45 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	get_character(char **map, t_coord *c)
 {
 	while (map[c->y][c->x] != 'P')
 	{
-		if (c->x == '\0')
+		if (map[c->y][c->x] == '\0')
 		{
 			c->x = 0;
 			c->y++;
@@ -72,7 +72,7 @@ void	fill_possible(char **map, t_coord c, t_win *mlx)
 		c.x = c.x + 1;
 	}
 }
-int	map_checker(char **map, t_win mlx)
+int	map_doable(char **map, t_win mlx)
 {
 	int	x;
 	int	y;
@@ -83,7 +83,6 @@ int	map_checker(char **map, t_win mlx)
 	{
 		while (map[y][x])
 		{
-			// printf("x = %i, y = %i\n", x, y);
 			if (map[y][x] == 'E' || map[y][x] == 'C')
 				return (0);
 			else
@@ -95,10 +94,9 @@ int	map_checker(char **map, t_win mlx)
 	return (1);
 }
 
-void	flood_fill(t_win *mlx)
+int	flood_fill(t_win *mlx)
 {
 	char	**map;
-	int		i;
 	t_coord	c;
 
 	c.x = 0;
@@ -106,18 +104,14 @@ void	flood_fill(t_win *mlx)
 	map = copy_tab(mlx->map);
 	get_character(map, &c);
 	fill_possible(map, c, mlx);
-	if (map_checker(map, *mlx) == 0)
+	if (map_doable(map, *mlx) == 0)
 	{
-		ft_printf("map KO\n");
-		exit (EXIT_FAILURE);
+		free_tab(map, mlx->y);
+		return (0);
 	}
 	else
-		ft_printf("map OK\n");
-	i = 0;
-	while (i < 5)
 	{
-		printf("%s\n", map[i]);
-		i++;
+		free_tab(map, mlx->y);
+		return (1);
 	}
-	free_tab(map, mlx->y);
 }

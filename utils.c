@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:05 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/12 11:28:42 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 16:54:40 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,45 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	ft_fullscreen(t_win win)
+int	ft_strcheckstr(char *str, char *checker)
 {
-	t_img	img;
-	float	x;
-	float	y;
-	float	i;
+	int	i;
+	int j;
 
-	img.img = mlx_new_image(win.mlx, win.y, win.x);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_len, &img.endian);
-	x = 0;
-	i = 254;
-	while (x < win.x)
+	i = 0;
+	j = 0;
+	while (i < ft_strlens(str) && checker[j])
 	{
-		y = 0;
-		while (y < win.y)
+		if (str[i] == checker[j])
 		{
-			win.color = create_trgb(i,(int)((x / win.y) * 255),(int)((y/win.x) * 255), 255/2);
-			my_mlx_pixel_put(&img, x, y, win.color);
-			y++;
+			j = 0;
+			i++;
 		}
-		x++;
+		else
+			j++;
 	}
-	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
+	if (j == ft_strlens(checker))
+		return (0);
+	else
+		return (1);
 }
 
-int	create_trgb(int t, int r, int g, int b)
+void	coord_map(char *path, t_win *mlx)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	int		fd;
+	char	*line;
+
+	fd = open(path, O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		if (mlx->x == 0)
+			mlx->x = (ft_strlen(line) - 1);
+		mlx->y++;
+		free(line);
+	}
+	close(fd);
+	return ;
 }

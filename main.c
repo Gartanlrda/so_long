@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:37:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 11:55:27 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:05:56 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_win	mlx;
-	void	*img1;
-	void	*img2;
-	char	*relative_path1 = "./Tileset/grass_floor.xpm";
-	char	*relative_path2 = "./Tileset/tree_wall.xpm";
-	int		img_width;
-	int		img_height;
+	t_win		mlx;
+	t_imglib	imglib;
 
 	if (argc != 2)
 		return (0);
@@ -30,13 +25,12 @@ int	main(int argc, char **argv)
 		mlx.x = 0;
 		coord_map(argv[1], &mlx);
 		copy_map(argv[1], &mlx);
-		flood_fill(&mlx);
+		if (global_map_check(&mlx) == 0)
+			exit (EXIT_FAILURE);
 		mlx.mlx = mlx_init();
-		mlx.win = mlx_new_window(mlx.mlx, (mlx.x * TILE), (mlx.y * TILE), "Bon deja");
-		// printf("%i, %i\n", mlx.y * TILE, mlx.x * TILE);
-		img1 = mlx_xpm_file_to_image(mlx.mlx, relative_path1, &img_width, &img_height);
-		img2 = mlx_xpm_file_to_image(mlx.mlx, relative_path2, &img_width, &img_height);
-		make_map(&mlx, img1, img2);
+		mlx.win = mlx_new_window(mlx.mlx, (mlx.x * TILE), (mlx.y * TILE), "So_long");
+		make_imglib(&imglib, &mlx);
+		make_map(&mlx, &imglib);
 		mlx_key_hook(mlx.win, key_hook, &mlx);
 		mlx_hook(mlx.win, 17, 0L, close_win, &mlx);
 		mlx_loop(mlx.mlx);
