@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:37:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 18:05:56 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/14 21:10:11 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 int	main(int argc, char **argv)
 {
-	t_win		mlx;
-	t_imglib	imglib;
+	t_win		*mlx;
 
+	mlx = malloc(sizeof(t_win));
 	if (argc != 2)
 		return (0);
 	else
 	{
-		mlx.y = 0;
-		mlx.x = 0;
-		coord_map(argv[1], &mlx);
-		copy_map(argv[1], &mlx);
-		if (global_map_check(&mlx) == 0)
+		mlx->y = 0;
+		mlx->x = 0;
+		coord_map(argv[1], mlx);
+		copy_map(argv[1], mlx);
+		if (global_map_check(mlx) == 0)
 			exit (EXIT_FAILURE);
-		mlx.mlx = mlx_init();
-		mlx.win = mlx_new_window(mlx.mlx, (mlx.x * TILE), (mlx.y * TILE), "So_long");
-		make_imglib(&imglib, &mlx);
-		make_map(&mlx, &imglib);
-		mlx_key_hook(mlx.win, key_hook, &mlx);
-		mlx_hook(mlx.win, 17, 0L, close_win, &mlx);
-		mlx_loop(mlx.mlx);
+		mlx->mlx = mlx_init();
+		mlx->win = mlx_new_window(mlx->mlx, (mlx->x * TILE), (mlx->y * TILE), "So_long");
+		mlx_key_hook(mlx->win, key_hook, mlx);
+		mlx_hook(mlx->win, 17, 0L, close_win, mlx);
+		make_imglib(mlx);
+		make_map(mlx);
+		mlx_loop(mlx->mlx);
 	}
+	free(mlx);
 }
 
 // int	main(void)

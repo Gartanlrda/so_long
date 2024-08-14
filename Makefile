@@ -6,7 +6,7 @@
 #    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/08/13 18:13:26 by gartan           ###   ########.fr        #
+#    Updated: 2024/08/14 21:19:18 by gartan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 
 NAME		= so_long
-CFLAGS		= -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address -g3
 MLX_PATH	= ./minilibx-linux
 MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lbsd -lXext -lX11 -lm
 LIBFT_FLAGS	= -L./libft -lft

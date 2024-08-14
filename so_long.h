@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/08/13 11:40:11 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/14 22:35:23 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 # include <fcntl.h>
 # include "libft/ft_printf.h"
 
-# define TILE 150
+# define TILE 100
+# define UP 65362
+# define Z 122
+# define W 119
+# define LEFT 65361
+# define Q 113
+# define A 97
+# define DOWN 65364
+# define S 115
+# define RIGHT 65363
+# define D 100
 
 #endif

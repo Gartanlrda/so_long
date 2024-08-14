@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 18:06:34 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/14 23:34:05 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,26 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
+typedef struct	s_imglib
+{
+	t_img	wall;
+	t_img	floor;
+	t_img	collectible;
+	t_img	character;
+	t_img	exit;
+	t_img	char_exit;
+}				t_imglib;
+
 typedef struct	s_win
 {
-	void	*mlx;
-	void	*win;
-	int		y;
-	int		x;
-	int		collectibles;
-	int		color;
-	char	**map;
+	void		*mlx;
+	void		*win;
+	int			y;
+	int			x;
+	int			collectibles;
+	int			color;
+	char		**map;
+	t_imglib	lib;
 }				t_win;
 
 typedef struct	s_coord
@@ -45,16 +56,6 @@ typedef struct	s_coord
 	int	x;
 	int	y;
 }				t_coord;
-
-typedef struct	s_imglib
-{
-	t_img	*wall;
-	t_img	*floor;
-	t_img	*collectible;
-	t_img	*character;
-	t_img	*exit;
-	t_img	*char_exit;
-}				t_imglib;
 
 int		close_win(t_win *win);
 void	ft_put_pixel(t_win *win, int x, int y, int color);
@@ -77,9 +78,13 @@ void	count_collectibles(t_win *mlx);
 int		map_missing_element(t_win *mlx);
 void	check_elements(char c, int *P, int *C, int *E);
 int		check_border(t_win *win);
-void	make_imglib(t_imglib *imglib, t_win *mlx);
-void	make_imglib2(t_imglib *imglib, t_win *mlx);
-void	*find_img(char c, t_imglib imglib);
-void	make_map(t_win *mlx, t_imglib *imglib);
+void	make_imglib(t_win *mlx);
+void	make_imglib2(t_win *mlx);
+void	make_map(t_win *mlx);
+void	move_up(t_win *win);
+void	move_left(t_win *win);
+void	move_right(t_win *win);
+void	move_down(t_win *win);
+int		get_exit(char **map);
 
 #endif

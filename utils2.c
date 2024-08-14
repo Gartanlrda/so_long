@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:55:02 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 16:55:59 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/14 23:27:55 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,22 @@ char	*ft_strdup_SL(const char *s)
 	if (result[i - 1] == '\n')
 		result[i - 1] = '\0';
 	return (result);
+}
+
+char	**copy_tab(char **map)
+{
+	char	**tab;
+	int		i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	tab = ft_calloc(i, sizeof(char*));
+	i = 0;
+	while (map[i])
+	{
+		tab[i] = ft_strdup(map[i]);
+		i++;
+	}
+	return (tab);
 }

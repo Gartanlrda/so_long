@@ -6,29 +6,11 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:16:17 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 15:47:45 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/14 23:38:23 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-
-char	**copy_tab(char **map)
-{
-	char	**tab;
-	int		i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	tab = ft_calloc(i, sizeof(char*));
-	i = 0;
-	while (map[i])
-	{
-		tab[i] = ft_strdup(map[i]);
-		i++;
-	}
-	return (tab);
-}
 
 void	get_character(char **map, t_coord *c)
 {
@@ -44,28 +26,50 @@ void	get_character(char **map, t_coord *c)
 	return ;
 }
 
+int	get_exit(char **map)
+{
+	t_coord	c;
+
+	c.x = 0;
+	c.y = 0;
+	while (map[c.y][c.x] != 'E')
+	{
+		if (map[c.y][c.x] == '\0' || map[c.y][c.x] == '\n')
+		{
+			c.x = 0;
+			c.y++;
+		}
+		c.x++;
+	}
+	if (map[c.y + 1][c.x] == 'X' || map[c.y][c.x - 1] == 'X'\
+		|| map[c.y][c.x + 1] == 'X' || map[c.y - 1][c.x] == 'X')
+		return (1);
+	else
+		return (0);
+}
+
 void	fill_possible(char **map, t_coord c, t_win *mlx)
 {
 	map[c.y][c.x] = 'X';
-	if ((map[c.y - 1][c.x] != 'X' && map[c.y - 1][c.x] != '1'))
+	if (map[c.y - 1][c.x] != 'X' && map[c.y - 1][c.x] != '1' && map[c.y - 1][c.x] != 'E')
 	{
 		c.y = c.y - 1;
 		fill_possible(map, c, mlx);
 		c.y = c.y + 1;
 	}
-	if (map[c.y + 1][c.x] != '1' && map[c.y + 1][c.x] != 'X')
+	if (map[c.y + 1][c.x] != '1' && map[c.y + 1][c.x] != 'X' && map[c.y + 1][c.x] != 'E')
 	{
 		c.y = c.y + 1;
 		fill_possible(map, c, mlx);
 		c.y = c.y - 1;
 	}
-	if ((map[c.y][c.x + 1] != '1' && (map[c.y][c.x + 1] != 'X')))
+	if (map[c.y][c.x + 1] != '1' && map[c.y][c.x + 1] != 'X' && map[c.y][c.x + 1] != 'E')
 	{
 		c.x = c.x + 1;
 		fill_possible(map, c, mlx);
 		c.x = c.x - 1;
 	}
-	if ((map[c.y][c.x - 1] != '1' && (map[c.y][c.x - 1] != 'X')))
+	if (map[c.y][c.x - 1] != '1' && map[c.y][c.x - 1] != 'X' && map[c.y][c.x - 1] != 'E')
 	{
 		c.x = c.x - 1;
 		fill_possible(map, c, mlx);
@@ -83,7 +87,7 @@ int	map_doable(char **map, t_win mlx)
 	{
 		while (map[y][x])
 		{
-			if (map[y][x] == 'E' || map[y][x] == 'C')
+			if (map[y][x] == 'C')
 				return (0);
 			else
 				x++;
@@ -91,6 +95,8 @@ int	map_doable(char **map, t_win mlx)
 		x = 0;
 		y++;
 	}
+	if (get_exit(map) == 0)
+		return (0);
 	return (1);
 }
 
