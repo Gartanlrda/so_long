@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:36:25 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:14:27 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:36:10 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_border(t_win *mlx)
 {
 	char	**map;
 	t_coord	c;
-	
+
 	c.y = -1;
 	map = copy_tab(mlx->map);
 	while (++c.y < mlx->y)
@@ -24,7 +24,7 @@ int	check_border(t_win *mlx)
 		c.x = -1;
 		while (map[c.y][++c.x])
 		{
-			if ((c.x == 0 || c.x == mlx->x - 1 || c.y == 0\
+			if ((c.x == 0 || c.x == mlx->x - 1 || c.y == 0 \
 				|| c.y == mlx->y - 1) && map[c.y][c.x] != '1')
 			{
 				free_tab(map, mlx->y);

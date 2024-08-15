@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:03:49 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 02:32:54 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:38:29 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,28 @@ int	map_valid_char(t_win *mlx)
 	free_tab(map, mlx->y);
 	return (1);
 }
+
 int	map_missing_element(t_win *mlx)
 {
 	char	**map;
-	int		P;
-	int		C;
-	int		E;
+	int		p;
+	int		g;
+	int		e;
 	t_coord	c;
 
-	P = 1;
-	C = 1;
-	E = 1;
+	p = 1;
+	g = 1;
+	e = 1;
 	c.y = -1;
 	map = copy_tab(mlx->map);
 	while (++c.y < mlx->y)
 	{
 		c.x = -1;
 		while (map[c.y][++c.x])
-			check_elements(map[c.y][c.x], &P, &C, &E);
+			check_elements(map[c.y][c.x], &p, &g, &e);
 	}
 	free_tab(map, mlx->y);
-	if (P != 0 || E != 0 || C > 0)
+	if (p != 0 || g != 0 || e > 0)
 		return (0);
 	return (1);
 }

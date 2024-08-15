@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:05 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:14:55 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:34:11 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_put_pixel(t_win *win, int x, int y, int color)
 	t_img	img;
 
 	img.img = mlx_new_image(win->mlx, win->x, win->y);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp,\
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, \
 		&img.line_len, &img.endian);
 	my_mlx_pixel_put(&img, x, y, color);
 	mlx_put_image_to_window(win->mlx, win->win, img.img, 0, 0);
@@ -35,13 +35,13 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	char	*dst;
 
 	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 int	ft_strcheckstr(char *str, char *checker)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;

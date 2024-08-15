@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:55:02 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:11:19 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:25:04 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strdup_SL(const char *s)
+char	*ft_strdup_sl(const char *s)
 {
 	int		i;
 	char	*result;
@@ -43,7 +43,7 @@ char	**copy_tab(char **map)
 	i = 0;
 	while (map[i])
 		i++;
-	tab = ft_calloc(i, sizeof(char*));
+	tab = ft_calloc(i, sizeof(char *));
 	i = 0;
 	while (map[i])
 	{

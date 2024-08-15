@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_map2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 04:52:32 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:13:29 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:39:51 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,21 @@ void	put_map(t_win *mlx, char **map, t_coord c)
 void	put_tiles(t_win *mlx, char c, int x, int y)
 {
 	if (c == '1')
-		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.wall.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.wall.img, \
 			x * TILE, y * TILE);
 	else if (c == '0')
-		mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->lib.floor.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.floor.img, \
 			x * TILE, y * TILE);
 	else if (c == 'P')
-		mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->lib.character.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.character.img, \
 			x * TILE, y * TILE);
 	else if (c == 'E')
-		mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->lib.exit.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.exit.img, \
 			x * TILE, y * TILE);
 	else if (c == 'C')
-		mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->lib.collectible.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.collectible.img, \
 			x * TILE, y * TILE);
 	else if (c == 'X')
-		mlx_put_image_to_window(mlx->mlx, mlx->win,mlx->lib.char_exit.img,\
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->lib.char_exit.img, \
 			x * TILE, y * TILE);
 }

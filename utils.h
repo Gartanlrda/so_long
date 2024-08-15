@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:10:23 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:32:57 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "so_long.h"
 # include "libft/ft_printf.h"
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -29,7 +29,7 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
-typedef struct	s_imglib
+typedef struct s_imglib
 {
 	t_img	wall;
 	t_img	floor;
@@ -39,7 +39,7 @@ typedef struct	s_imglib
 	t_img	char_exit;
 }				t_imglib;
 
-typedef struct	s_win
+typedef struct s_win
 {
 	void		*mlx;
 	void		*win;
@@ -52,7 +52,7 @@ typedef struct	s_win
 	t_imglib	lib;
 }				t_win;
 
-typedef struct	s_coord
+typedef struct s_coord
 {
 	int	x;
 	int	y;
@@ -64,7 +64,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		key_hook(int keycode, t_win *win);
 void	coord_map(char *path, t_win *mlx);
 void	copy_map(char *path, t_win *mlx);
-char	*ft_strdup_SL(const char *s);
+char	*ft_strdup_sl(const char *s);
 int		flood_fill(t_win *mlx);
 void	fill_possible(char **map, t_coord c, t_win *mlx);
 void	get_character(char **map, t_coord *c);

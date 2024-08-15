@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 04:04:51 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:44:48 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	key_hook(int keycode, t_win *win)
 		ft_printf("keybind: %i\n", keycode);
 	return (0);
 }
-
 
 void	move_up(t_win *win)
 {

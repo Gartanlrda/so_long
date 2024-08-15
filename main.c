@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:37:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:12:14 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:44:32 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		if (global_map_check(mlx) == 0)
 			exit (EXIT_FAILURE);
 		mlx->mlx = mlx_init();
-		mlx->win = mlx_new_window(mlx->mlx, (mlx->x * TILE),\
+		mlx->win = mlx_new_window(mlx->mlx, (mlx->x * TILE), \
 			(mlx->y * TILE), "So_long");
 		mlx_key_hook(mlx->win, key_hook, mlx);
 		make_imglib(mlx);
