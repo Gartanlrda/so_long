@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:03:49 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:38:29 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/15 06:14:49 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	map_missing_element(t_win *mlx)
 			check_elements(map[c.y][c.x], &p, &g, &e);
 	}
 	free_tab(map, mlx->y);
-	if (p != 0 || g != 0 || e > 0)
+	if (p != 0 || e != 0 || g > 0)
 		return (0);
 	return (1);
 }
