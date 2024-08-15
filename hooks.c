@@ -6,7 +6,7 @@
 /*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:44:48 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/15 06:16:42 by ggoy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	key_hook(int keycode, t_win *win)
 		move_right(win);
 		make_map(win);
 	}
-	else
-		ft_printf("keybind: %i\n", keycode);
 	return (0);
 }
 
