@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:16:17 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/14 23:38:23 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:11:08 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	get_character(char **map, t_coord *c)
 {
-	while (map[c->y][c->x] != 'P')
+	while (map[c->y][c->x] != 'P' && map[c->y][c->x] != 'X')
 	{
 		if (map[c->y][c->x] == '\0')
 		{
@@ -51,31 +51,32 @@ int	get_exit(char **map)
 void	fill_possible(char **map, t_coord c, t_win *mlx)
 {
 	map[c.y][c.x] = 'X';
-	if (map[c.y - 1][c.x] != 'X' && map[c.y - 1][c.x] != '1' && map[c.y - 1][c.x] != 'E')
+	if (charcmp(map[c.y - 1][c.x], "1XE") == 1)
 	{
 		c.y = c.y - 1;
 		fill_possible(map, c, mlx);
 		c.y = c.y + 1;
 	}
-	if (map[c.y + 1][c.x] != '1' && map[c.y + 1][c.x] != 'X' && map[c.y + 1][c.x] != 'E')
+	if (charcmp(map[c.y + 1][c.x], "1XE") == 1)
 	{
 		c.y = c.y + 1;
 		fill_possible(map, c, mlx);
 		c.y = c.y - 1;
 	}
-	if (map[c.y][c.x + 1] != '1' && map[c.y][c.x + 1] != 'X' && map[c.y][c.x + 1] != 'E')
+	if (charcmp(map[c.y][c.x + 1], "1XE") == 1)
 	{
 		c.x = c.x + 1;
 		fill_possible(map, c, mlx);
 		c.x = c.x - 1;
 	}
-	if (map[c.y][c.x - 1] != '1' && map[c.y][c.x - 1] != 'X' && map[c.y][c.x - 1] != 'E')
+	if (charcmp(map[c.y][c.x - 1], "1XE") == 1)
 	{
 		c.x = c.x - 1;
 		fill_possible(map, c, mlx);
 		c.x = c.x + 1;
 	}
 }
+
 int	map_doable(char **map, t_win mlx)
 {
 	int	x;

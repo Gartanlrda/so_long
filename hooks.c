@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/14 23:45:03 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 04:04:51 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	key_hook(int keycode, t_win *win)
 	return (0);
 }
 
+
 void	move_up(t_win *win)
 {
 	t_coord	c;
@@ -51,21 +52,21 @@ void	move_up(t_win *win)
 	map = copy_tab(win->map);
 	get_character(map, &c);
 	free_tab(map, win->y);
-	if (win->map[c.y - 1][c.x] == '0')
+	if (win->map[c.y - 1][c.x] == '0' && win->map[c.y][c.x] != 'X')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y - 1][c.x] = 'P';
+		move(win, c, 'U', 'P');
+		ft_printf("move: %i\n", win->moves++);
 	}
 	else if (win->map[c.y - 1][c.x] == 'C')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y - 1][c.x] = 'P';
+		move(win, c, 'U', 'P');
+		ft_printf("move: %i\n", win->moves++);
 		win->collectibles--;
 	}
 	else if (win->map[c.y - 1][c.x] == 'E' && win->collectibles == 0)
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y - 1][c.x] = 'X';
+		move(win, c, 'U', 'X');
+		ft_printf("move: %i\n", win->moves++);
 	}
 }
 
@@ -79,21 +80,21 @@ void	move_left(t_win *win)
 	map = copy_tab(win->map);
 	get_character(map, &c);
 	free_tab(map, win->y);
-	if (win->map[c.y][c.x - 1] == '0')
+	if (win->map[c.y][c.x - 1] == '0' && win->map[c.y][c.x] != 'X')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x - 1] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'L', 'P');
 	}
 	else if (win->map[c.y][c.x - 1] == 'C')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x - 1] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'L', 'P');
 		win->collectibles--;
 	}
 	else if (win->map[c.y][c.x - 1] == 'E' && win->collectibles == 0)
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x - 1] = 'X';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'L', 'X');
 	}
 }
 
@@ -107,21 +108,21 @@ void	move_right(t_win *win)
 	map = copy_tab(win->map);
 	get_character(map, &c);
 	free_tab(map, win->y);
-	if (win->map[c.y][c.x + 1] == '0')
+	if (win->map[c.y][c.x + 1] == '0' && win->map[c.y][c.x] != 'X')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x + 1] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'R', 'P');
 	}
 	else if (win->map[c.y][c.x + 1] == 'C')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x + 1] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'R', 'P');
 		win->collectibles--;
 	}
 	else if (win->map[c.y][c.x + 1] == 'E' && win->collectibles == 0)
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y][c.x + 1] = 'X';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'R', 'X');
 	}
 }
 
@@ -135,20 +136,20 @@ void	move_down(t_win *win)
 	map = copy_tab(win->map);
 	get_character(map, &c);
 	free_tab(map, win->y);
-	if (win->map[c.y + 1][c.x] == '0')
+	if (win->map[c.y + 1][c.x] == '0' && win->map[c.y][c.x] != 'X')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y + 1][c.x] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'D', 'P');
 	}
-	else if (win->map[c.y + 1][c.x] == '0')
+	else if (win->map[c.y + 1][c.x] == 'C')
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y + 1][c.x] = 'P';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'D', 'P');
 		win->collectibles--;
 	}
 	else if (win->map[c.y + 1][c.x] == 'E' && win->collectibles == 0)
 	{
-		win->map[c.y][c.x] = '0';
-		win->map[c.y + 1][c.x] = 'X';
+		ft_printf("move: %i\n", win->moves++);
+		move(win, c, 'D', 'X');
 	}
 }

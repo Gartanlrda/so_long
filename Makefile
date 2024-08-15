@@ -6,7 +6,7 @@
 #    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/08/14 21:19:18 by gartan           ###   ########.fr        #
+#    Updated: 2024/08/15 04:53:02 by gartan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC_FILES	= main.c\
 				free_utils.c\
 				map_check.c\
 				map_check2.c\
-				utils2.c
+				utils2.c\
+				make_map2.c
 
 OBJ_FILES	= $(SRC_FILES:.c=.o)
 

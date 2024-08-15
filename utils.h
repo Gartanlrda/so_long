@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/14 23:34:05 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:10:23 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_win
 	int			x;
 	int			collectibles;
 	int			color;
+	int			moves;
 	char		**map;
 	t_imglib	lib;
 }				t_win;
@@ -86,5 +87,11 @@ void	move_left(t_win *win);
 void	move_right(t_win *win);
 void	move_down(t_win *win);
 int		get_exit(char **map);
+void	final_touch(t_win *mlx);
+void	move(t_win *win, t_coord c, char n, char x);
+void	resize_map(t_win *mlx, char **map, t_coord c);
+void	put_map(t_win *mlx, char **map, t_coord c);
+void	put_tiles(t_win *mlx, char c, int x, int y);
+int		charcmp(char c, char *s);
 
 #endif

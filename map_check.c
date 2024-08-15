@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:03:49 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 16:43:50 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 02:32:54 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	count_collectibles(t_win *mlx)
 
 	y = 0;
 	map = copy_tab(mlx->map);
+	mlx->collectibles = 0;
 	while (y < mlx->y)
 	{
 		x = 0;

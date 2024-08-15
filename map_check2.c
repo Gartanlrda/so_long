@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:36:25 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 16:44:45 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:14:27 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	check_border(t_win *mlx)
 		c.x = -1;
 		while (map[c.y][++c.x])
 		{
-			if ((c.x == 0 || c.x == mlx->x - 1 || c.y == 0 || c.y == mlx->y - 1) &&\
-				map[c.y][c.x] != '1')
+			if ((c.x == 0 || c.x == mlx->x - 1 || c.y == 0\
+				|| c.y == mlx->y - 1) && map[c.y][c.x] != '1')
 			{
 				free_tab(map, mlx->y);
 				return (0);

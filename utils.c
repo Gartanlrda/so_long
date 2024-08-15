@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:05 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/13 16:54:40 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:14:55 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_put_pixel(t_win *win, int x, int y, int color)
 	t_img	img;
 
 	img.img = mlx_new_image(win->mlx, win->x, win->y);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_len, &img.endian);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp,\
+		&img.line_len, &img.endian);
 	my_mlx_pixel_put(&img, x, y, color);
 	mlx_put_image_to_window(win->mlx, win->win, img.img, 0, 0);
 }
