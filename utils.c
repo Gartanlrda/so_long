@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:05 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:34:11 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/16 15:47:56 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 int	close_win(t_win *win)
 {
+	mlx_destroy_image(win->mlx, win->lib.char_exit.img);
+	mlx_destroy_image(win->mlx, win->lib.character.img);
+	mlx_destroy_image(win->mlx, win->lib.collectible.img);
+	mlx_destroy_image(win->mlx, win->lib.exit.img);
+	mlx_destroy_image(win->mlx, win->lib.floor.img);
+	mlx_destroy_image(win->mlx, win->lib.wall.img);
 	mlx_destroy_window(win->mlx, win->win);
-	exit (EXIT_SUCCESS);
+	mlx_destroy_display(win->mlx);
+	free_tab(win->map, win->y);
+	free(win->mlx);
+	free(win);
 	return (0);
 }
 

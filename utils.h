@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:32:57 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/16 15:16:26 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ void	resize_map(t_win *mlx, char **map, t_coord c);
 void	put_map(t_win *mlx, char **map, t_coord c);
 void	put_tiles(t_win *mlx, char c, int x, int y);
 int		charcmp(char c, char *s);
+void	make_fail(t_win *mlx);
 
 #endif

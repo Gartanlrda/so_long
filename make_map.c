@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:32:48 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 05:44:15 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/16 15:24:10 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ void	make_map(t_win *mlx)
 	resize_map(mlx, map, c);
 	free_tab(map, mlx->y);
 	final_touch(mlx);
+	// free_tab(map, mlx->y);
 }

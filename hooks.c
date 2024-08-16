@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 06:16:42 by ggoy             ###   ########.fr       */
+/*   Updated: 2024/08/16 15:44:45 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_hook(int keycode, t_win *win)
 {
 	if (keycode == 65307)
-		close_win(win);
+		mlx_loop_end(win->mlx);	
 	else if (keycode == UP || keycode == Z || keycode == W)
 	{
 		move_up(win);
