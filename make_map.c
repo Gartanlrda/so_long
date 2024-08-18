@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:32:48 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/18 14:58:10 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/18 14:59:52 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,4 @@ void	make_map(t_win *mlx)
 	resize_map(mlx, map, c);
 	free_tab(map, mlx->y);
 	final_touch(mlx);
-	free_tab(map, mlx->y);
 }
