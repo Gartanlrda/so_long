@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:27:59 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/16 15:44:45 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/18 14:57:25 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_hook(int keycode, t_win *win)
 {
 	if (keycode == 65307)
-		mlx_loop_end(win->mlx);	
+		mlx_loop_end(win->mlx);
 	else if (keycode == UP || keycode == Z || keycode == W)
 	{
 		move_up(win);
