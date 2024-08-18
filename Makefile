@@ -6,7 +6,7 @@
 #    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/08/16 15:49:48 by gartan           ###   ########.fr        #
+#    Updated: 2024/08/18 14:26:43 by gartan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME		= so_long
 CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address -g3
-MLX_PATH	= ./minilibx-linux
+MLX_PATH	= ./mlx
 MLX_FLAGS	= -L$(MLX_PATH) -lmlx -lbsd -lXext -lX11 -lm
 LIBFT_FLAGS	= -L./libft -lft
 CC			= cc
@@ -50,8 +50,13 @@ $(NAME): $(OBJ_FILES)
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-minilibx_linux:
-	wget https://cdn.intra.42.fr/document/document/26928/minilibx-linux.tgz
+mlx:
+	git clone https://github.com/42Paris/minilibx-linux.git mlx
+	cd mlx; make all
+	
+libft:
+	git clone git@github.com:Gartanlrda/libft.git libft
+	cd libft; make bonus
 
 clean:
 	rm -f $(OBJ_FILES)

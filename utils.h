@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:43:54 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/16 15:16:26 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/18 14:46:47 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define UTILS_H
 
 # include <stdlib.h>
-# include "minilibx-linux/mlx.h"
+# include "mlx/mlx.h"
 # include <stdio.h>
 # include "libft/libft.h"
 # include "so_long.h"
@@ -94,5 +94,6 @@ void	put_map(t_win *mlx, char **map, t_coord c);
 void	put_tiles(t_win *mlx, char c, int x, int y);
 int		charcmp(char c, char *s);
 void	make_fail(t_win *mlx);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

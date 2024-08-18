@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:03:49 by gartan            #+#    #+#             */
-/*   Updated: 2024/08/15 06:14:49 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/18 14:16:40 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,22 +106,22 @@ int	global_map_check(t_win *mlx)
 {
 	if (mlx->x < 3 || mlx->y < 3 || map_dimension(mlx) == 0)
 	{
-		ft_printf("Wrong map dimension\n");
+		ft_printf("Error\nWrong map dimension\n");
 		return (0);
 	}
 	if (map_valid_char(mlx) == 0 || map_missing_element(mlx) == 0)
 	{
-		ft_printf("Character invalid or missing in map parsing\n");
+		ft_printf("Error\nCharacter invalid or missing in map parsing\n");
 		return (0);
 	}
 	if (check_border(mlx) == 0)
 	{
-		ft_printf("Wrong border\n");
+		ft_printf("Error\nWrong border\n");
 		return (0);
 	}
 	if (flood_fill(mlx) == 0)
 	{
-		ft_printf("Map road impossible\n");
+		ft_printf("Error\nMap road impossible\n");
 		return (0);
 	}
 	else

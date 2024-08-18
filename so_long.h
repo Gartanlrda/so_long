@@ -6,7 +6,7 @@
 /*   By: gartan <gartan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:50:47 by ggoy              #+#    #+#             */
-/*   Updated: 2024/08/14 22:35:23 by gartan           ###   ########.fr       */
+/*   Updated: 2024/08/18 14:21:18 by gartan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
-# include "minilibx-linux/mlx.h"
+# include "mlx/mlx.h"
 # include <stdio.h>
 # include "libft/libft.h"
 # include "utils.h"
