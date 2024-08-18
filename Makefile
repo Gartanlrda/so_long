@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gartan <gartan@student.42.fr>              +#+  +:+       +#+         #
+#    By: ggoy <ggoy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 12:05:39 by ggoy              #+#    #+#              #
-#    Updated: 2024/08/18 14:26:43 by gartan           ###   ########.fr        #
+#    Updated: 2024/08/18 15:08:01 by ggoy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ_FILES	= $(SRC_FILES:.c=.o)
 ################################################################################
 
 
-all: $(NAME)
+all: mlx libft $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES) $(MLX_FLAGS) $(LIBFT_FLAGS)
